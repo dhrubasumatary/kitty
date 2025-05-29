@@ -1,12 +1,13 @@
 // src/app/page.tsx
 "use client";
 
-import { useChat, Message, CreateMessage } from "@ai-sdk/react"; // Message and CreateMessage might be needed
+import { useChat, Message } from "@ai-sdk/react"; // Remove CreateMessage
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRef, useEffect, FormEvent, useState } from "react"; // Ensure useRef and useEffect are imported
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
 export default function ChatPage() {
   const {
@@ -16,8 +17,6 @@ export default function ChatPage() {
     handleSubmit: originalHandleSubmit,
     isLoading,
     error,
-    setMessages,
-    reload,
   } = useChat({
     api: "/api/chat",
     onError: (err) => {
@@ -67,7 +66,7 @@ export default function ChatPage() {
         {/* Minimal Branding/Header */}
         <div className="w-full flex flex-col items-center justify-center py-3 border-b border-zinc-800 mb-2">
           <span className="flex items-center gap-2">
-            <img src="/kitty.png" alt="Kitty Icon" className="w-8 h-8 rounded-full object-cover border-2 border-pink-400 shadow-sm" />
+            <Image src="/kitty.png" alt="Kitty Icon" width={32} height={32} className="w-8 h-8 rounded-full object-cover border-2 border-pink-400 shadow-sm" />
             <span className="text-2xl md:text-3xl font-extrabold tracking-tight text-pink-500">desi billi</span>
           </span>
           <a
@@ -88,8 +87,8 @@ export default function ChatPage() {
           {/* Welcome Screen */}
           {showWelcome && messages.length === 0 && input.trim() === "" ? (
             <div className="flex flex-col items-center justify-center w-full h-full fade-in-welcome">
-              <img src="/welcome.png" alt="Welcome Kitty" className="w-56 md:w-72 mb-6" />
-              <div className="text-pink-200 text-2xl md:text-3xl font-bold text-center mb-2">hey 😺 kya scene hai? I'm all ears (and tail), and a prompt.</div>
+              <Image src="/welcome.png" alt="Welcome Kitty" width={288} height={384} className="w-56 md:w-72 mb-6" />
+              <div className="text-pink-200 text-2xl md:text-3xl font-bold text-center mb-2">hey 😺 kya scene hai? I&apos;m all ears (and tail), and a prompt.</div>
               <div className="text-zinc-400 text-base md:text-lg text-center">ask desi billi anything on your mind…</div>
             </div>
           ) : (

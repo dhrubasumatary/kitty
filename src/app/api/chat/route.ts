@@ -151,7 +151,9 @@ export async function POST(req: NextRequest) {
         if (typeof msg.content === "string") {
           contentText = msg.content;
         } else if (Array.isArray(msg.content)) {
-          const textPart = msg.content.find((part: any) => part.type === "text");
+          const textPart = (msg.content as Array<{ type: string; text?: string }>).find(
+            (part) => part.type === "text"
+          );
           if (textPart && "text" in textPart && typeof textPart.text === "string") {
             contentText = textPart.text;
           }
