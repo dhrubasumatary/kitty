@@ -61,10 +61,10 @@ export default function ChatPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-zinc-900 to-zinc-800 flex flex-col items-center justify-center px-2 py-4">
-      <Card className="w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl h-[calc(100vh-3rem)] flex flex-col shadow-2xl bg-zinc-950/80 border-zinc-800 px-0 sm:px-2 md:px-6 lg:px-10 transition-all">
+    <main className="h-screen w-screen bg-gradient-to-br from-zinc-900 to-zinc-800 flex flex-col">
+      <Card className="w-full h-full flex flex-col bg-zinc-950/80 transition-all">
         {/* Minimal Branding/Header */}
-        <div className="w-full flex flex-col items-center justify-center py-3 border-b border-zinc-800 mb-2">
+        <div className="w-full flex flex-col items-center justify-center py-3 border-b border-zinc-800/50 mb-2">
           <span className="flex items-center gap-2">
             <Image src="/kitty.png" alt="Kitty Icon" width={32} height={32} className="w-8 h-8 rounded-full object-cover border-2 border-pink-400 shadow-sm" />
             <span className="text-2xl md:text-3xl font-extrabold tracking-tight text-pink-500">desi billi</span>
@@ -82,7 +82,7 @@ export default function ChatPage() {
         </div>
         <CardContent
           ref={chatContainerRef}
-          className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-4 flex flex-col items-center justify-center"
+          className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4"
         >
           {/* Welcome Screen */}
           {showWelcome && messages.length === 0 && input.trim() === "" ? (
@@ -133,7 +133,7 @@ export default function ChatPage() {
         </CardContent>
         <form
           onSubmit={handleFormSubmit}
-          className="flex gap-2 p-4 border-t border-zinc-800 bg-zinc-950/90"
+          className="flex gap-2 p-3 sm:p-4 border-t border-zinc-800/50 bg-zinc-950/90"
         >
           <Input
             className="flex-1 bg-zinc-900 text-zinc-100 border-zinc-700 focus:ring-2 focus:ring-zinc-400 placeholder:text-zinc-500"
