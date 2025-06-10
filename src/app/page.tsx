@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { useRef, useEffect, FormEvent, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import { ArrowRightIcon, SparklesIcon } from "@heroicons/react/24/solid";
 
 export default function ChatPage() {
   const {
@@ -93,7 +92,7 @@ export default function ChatPage() {
         >
           <span>powered by</span>
           <span className="font-medium">Sarvam-M</span>
-          <SparklesIcon className="w-3 h-3 text-pink-300" />
+          <span className="text-pink-300">✨</span>
         </a>
       </header>
       
@@ -204,7 +203,7 @@ export default function ChatPage() {
             ) : (
               <>
                 <span>Send</span>
-                <ArrowRightIcon className="w-4 h-4" />
+                <span className="text-lg">→</span>
               </>
             )}
           </Button>
